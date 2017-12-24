@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>双向绑定</title>
+</head>
+<body>
+<div id="con">
+	<input type="text" v-model='msg'>
+	<div class="content" v-text="msg"></div>
+</div>
+	<script src="../vue.js"></script>
+	<script>
+		var app	= new Vue({
+			el:'#con',
+			data:{
+				msg:''
+			}
+		});
+	</script>
+</body>
+</html>
