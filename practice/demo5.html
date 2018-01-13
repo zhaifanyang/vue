@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+	<style>
+		.div{width: 100px;height: 50px;background-color: red;margin: 10px auto;}
+		.active{width: 100px;padding: 100px;background-color: orange;}
+		button{display: block;margin: 0 auto;}
+	</style>
+</head>
+<body>
+	<div id="demo">
+		<button @click='changeClass'>改变样式</button>
+		<div :class="{active:isactive}" class="div"></div>
+	</div>
+	<script>
+		var vm = new Vue({
+		  el:"#demo",
+		  data:{
+		  	isactive:false
+		  },
+		  methods:{
+		  	changeClass:function(){
+		  		this.isactive = this.isactive ? false: true
+		  	}
+		  }
+		})
+	</script>
+	
+</body>
+</html>

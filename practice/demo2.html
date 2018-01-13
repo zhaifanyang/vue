@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+	  <input type="text" :value = 'a'>
+	  <!-- 这里的 `obj.foo` 不会更新！ -->
+	  <button @click="a = 'baz'">Change it</button>
+	</div>
+	<script>
+		var data = { a: 1 }
+
+		var vm = new Vue({
+		  el: '#app',
+		  data: data,
+		  created:function(){
+		  	console.log('a is:'+this.a)
+		  }
+		})
+
+	</script>
+
+</body>
+</html>

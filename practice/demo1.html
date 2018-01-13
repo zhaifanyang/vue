@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+	  <p>{{a}}</p>
+	  <!-- 这里的 `obj.foo` 不会更新！ -->
+	  <button @click="a = 'baz'">Change it</button>
+	</div>
+	<script>
+		var data = { a: 1 }
+
+		var vm = new Vue({
+		  el: '#app',
+		  data: data
+		})
+		//实力方法,vm.a改变后调用
+		vm.$watch('a',function(newValue,oldValue){
+			alert('sh')
+		})
+		console.log(vm.$data)
+	</script>
+
+</body>
+</html>

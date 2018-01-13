@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src="../vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<p>{{message}}</p>
+		<p>{{reverseMessage}}</p>
+		<p>{{now}}</p>
+	</div>
+	
+	<script>
+		var app = new Vue({
+			el: "#app",
+			data: {
+				message: 'reverse'
+			},
+			//computed会产生缓存,属性不变直接调用缓存
+			computed: {
+				reverseMessage: function(){
+					return this.message.split('').reverse().join('')
+				},
+				now:function(){
+					return Date.now()
+				}
+			}
+		})
+	</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+	<template v-if="ok">
+		<h1>yes</h1>
+	</template>
+	<template v-else='false'>
+		<h1>no</h1>
+	</template>
+	<button @click='change'>+++</button>
+</div>
+</body>
+<script>
+	var demo = new Vue({
+		el:'#demo',
+		data:{
+			ok: true,
+			false: true
+		},
+		methods:{
+			change:function(){
+				this.ok = this.ok?false:true
+			}
+		}
+	})
+</script>
+</html>
