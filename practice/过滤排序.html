@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+	<ul>
+		<li v-for='n in even'>
+			{{n}}
+		</li>
+
+	</ul>
+	<ol>
+		<li v-for='n in eventNum(numbers)'>
+			{{n}}
+		</li>
+	</ol>
+</div>
+</body>
+<script>
+	var demo = new Vue({
+		el:'#demo',
+		data:{
+			numbers:[1,2,2,1,4,6,8,5,35,35,43,23,56,54]
+		},
+		computed: {
+		  even: function () {
+		    return this.numbers.filter(function (number) {
+		      return number % 2 === 0
+		    })
+		  }
+		},
+		methods:{
+			eventNum:function(numbers){
+				return numbers.filter(function(num){
+					return num % 2 === 0
+				})
+			}
+		}
+	})
+</script>
+</html>

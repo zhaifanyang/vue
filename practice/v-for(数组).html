@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+<!-- v-show不支持template以及v-else -->
+	<ul>
+		<li v-for='(item,index) in items'>
+			{{'index:'+index}}{{item.id}}{{item.address}}
+		</li>
+	</ul>
+</div>
+</body>
+<script>
+	var demo = new Vue({
+		el:'#demo',
+		data:{
+			items:[
+				{id:1,address:'China'},
+				{id:2,address:'Japan'},
+				{id:3,address:'USA'},
+				{id:4,address:'Australia'}
+			]
+		} 
+	})
+</script>
+</html>

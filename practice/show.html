@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+<!-- v-show不支持template以及v-else -->
+		<h1 v-show="ok">yes</h1>
+		<h1>no</h1>
+	<button @click='change'>+++</button>
+</div>
+</body>
+<script>
+	var demo = new Vue({
+		el:'#demo',
+		data:{
+			ok: true,
+		},
+		methods:{
+			change:function(){
+				this.ok = this.ok?false:true
+			}
+		}
+	})
+</script>
+</html>
