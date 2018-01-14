@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+	<input type="text" v-model='msg'>
+	<p>{{msg}}</p>
+	<p>message is:{{message}}</p>
+	<textarea v-model='message'></textarea>
+</div>
+</body>
+<script>
+	var vm = new Vue({
+		el:'#demo',
+		data:{
+			msg:'',
+			message:''
+		}
+	})
+</script>
+</html>

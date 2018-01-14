@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+	<child></child>
+	<child></child>
+	<child></child>
+</div>
+</body>
+<script>
+	var demo = new Vue({
+		el:'#demo',
+		components:{
+			'child':{
+				template:'<button @click="text">{{counter}}</button>',
+				data:function(){
+					return {
+						counter:0
+					}
+				},
+				props:['message'],
+				methods:{
+					text:function(){
+						return this.counter++
+					}
+				}
+			}
+		}
+	});
+
+</script>
+</html>

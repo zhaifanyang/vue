@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+		<ul>
+			<li is='ul-child'></li>
+		</ul>
+		<ol>
+			<li is='ol-child'></li>
+		</ol>
+		<table>
+			<tr is='tab-child'></tr>
+		</table>
+		<select>
+			<option is='opt'></option>
+		</select>
+	</div>
+	<script>
+	var app = new Vue({
+		el:"#app",
+		components:{
+			'opt':{
+				template:'<option>12</option>'
+			},
+			'ol-child':{
+				template:'<li>ol</li>'
+			},
+			'ul-child':{
+				template:'<li>ul</li>'
+			},
+			'tab-child':{
+				template:'<tr>tab</tr>'
+			}
+		}
+	})
+	</script>
+</body>
+</html>

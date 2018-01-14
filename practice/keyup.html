@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+	<div id="app">
+	  <p>{{a}}</p>
+	  <input type="text" @keydown.37 = "look">
+	  <input type="text" @keydown='key($event)'>
+	  <input type="text" @keydown.112.prevent='key($event)'>
+	  <input type="text" @keydown.left='key($event)'>
+	  <p v-text = "a"></p>
+	</div>
+	<script>
+		var vm = new Vue({
+		  el: '#app',
+		  data: { a: 1,ke:0 },
+		  methods:{
+		  	look:function(){
+		  		alert('左键')
+		  	},
+		  	key:function(event){
+		  		var event = event||window.event;
+		  		this.a = event.keyCode;
+		  		console.log(event.enterKey)
+		  	}
+		  }
+		})
+		// 可以通过全局 config.keyCodes 对象自定义按键修饰符别名：
+		Vue.config.keyCodes.f1=112
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id="demo">
+	<my-component></my-component>
+	<demotext></demotext>
+</div>
+</body>
+<script>
+	var text = {
+			template:'<div>demotext</div>'
+		}
+	Vue.component('my-component', {
+		  template: '<div>box</div>'
+		})
+	var demo = new Vue({
+		el:'#demo',
+		components:{
+			'demotext':text
+		}
+	});
+
+</script>
+</html>

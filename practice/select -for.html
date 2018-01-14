@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script type="text/javascript" src='../vue.js'></script>
+</head>
+<body>
+<div id='example-3'>
+	<input v-model.number="age">
+	<input v-model.trim="str">
+	<select v-model='select'>
+		<option v-for="option in options" v-bind:value="option.val">{{option.text}}</option>
+	</select>
+	<p>{{select}}</p>
+</div>
+</body>
+<script>
+	var app=new Vue({
+	  el: '#example-3',
+	  data: {
+	  	age: null,
+	  	str:'',
+	    select: 'A',
+	    options:[
+	    	{text:'one',val:'A'},
+	    	{text:'two',val:'B'},
+	    	{text:'three',val:'C'}
+	    ]
+	  }
+	})
+</script>
+</html>
