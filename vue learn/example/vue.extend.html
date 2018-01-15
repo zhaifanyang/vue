@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue.extend扩展实例构造器</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>vue.extend扩展实例构造器</h1>
+	<hr>
+	<div id="app">
+		<author></author><br>
+		<div id="box"></div>
+	</div>
+	<script type="text/javascript">
+		var authorExtend = Vue.extend({
+			template:"<a :href='authorUrl'>{{message}}</a>",
+			data:function(){
+				return {
+					authorUrl:'https:/zhaifanyang.github.io',
+					message:'扩展实例构造生成'
+				}
+			}
+		})
+		// $mount()为手动挂载,()内类似jquery选择器
+		new authorExtend().$mount('author')
+		new authorExtend().$mount('#box')
+	</script>
+</body>
+</html>

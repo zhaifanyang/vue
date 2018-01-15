@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component-3父子组件关系</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		<jubu></jubu>
+	</div>
+	
+	<script type="text/javascript">
+		var city={
+           template:`<div style="color:red">第二层子组件</div>`
+       }
+		var place = {
+			template:`<div>
+				<h2 style="color:red">第一层子组件</h2>
+				<city></city>
+			</div>`,
+			components:{
+				"city":city
+			}
+		} 
+		var app = new Vue({
+			el:"#app",
+			components:{
+				"jubu":place
+			}
+		})
+
+	</script>
+</body>
+</html>

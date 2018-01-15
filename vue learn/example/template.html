@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>三种模板创建方式</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		{{message}}
+		<!-- 第二种模板 -->
+		<template id="tem">
+			<h2 style="color:orange">template模板</h2>
+		</template>
+		<!-- 第三种模板 -->
+		<script type="x-template" id='dd3'>
+		<h2 style="color:orange">script模板</h2>
+		</script>
+	</div>
+	<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			message:'hello world!'
+		},
+		template:"#dd3"
+		// 第一种模板
+		// template:`
+		// 	<h2 style="color:orange">选项模板</h2>
+		// `
+	})
+	</script>
+</body>
+</html>
+</script>

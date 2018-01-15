@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component组件</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		<jubu :from-here='message'></jubu>
+	</div>
+	
+	<script type="text/javascript">
+		var app = new Vue({
+			el:"#app",
+			data:{
+				message:'China'
+			},
+			components:{
+				"jubu":{
+					template:`<h2 style="color:red">Where from here:{{fromHere}}</h2>`,
+					props:['fromHere']
+				}
+			}
+		})
+
+	</script>
+</body>
+</html>

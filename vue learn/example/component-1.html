@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>component组件</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		<zf></zf>
+		<jubu></jubu>
+	</div>
+	<div id="app2">
+		<zf></zf>
+	</div>
+	<script type="text/javascript">
+	Vue.component('zf',{
+		template:`<h2 style="color:green">我是component创建的全局组件</h2>`
+	})
+	var app = new Vue({
+		el:"#app",
+		components:{
+			"jubu":{
+				template:`<h2 style="color:red">我是component创建的局部组件</h2>`
+			}
+		}
+	})
+	var app2 = new Vue({
+		el:'#app2'
+	})
+	</script>
+</body>
+</html>
