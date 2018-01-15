@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-bind实例</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+	<style type="text/css">
+		.classA{color: red;}
+		.classB{color: orange;}
+	</style>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		<img :src="imgSrc" width="200px">
+		<hr>
+		<a :href="srcUrl">地址</a>
+		<hr>
+		<h3>变更class</h3>
+		<p :class='addClass'>这是内容</p>
+		<p :class='{classA:isOk}'>class条件判断绑定</p>
+		<hr>
+		<input type="checkbox" id="isOk" v-model="isOk">
+		<label for="isOk">{{isOk}}</label>
+		<hr>
+		<p :class='isOk?classA:classB'>class数组绑定</p>
+		<p :style='sty'>style绑定</p>
+	</div>
+	<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			imgSrc:'http://imgsrc.baidu.com/baike/pic/item/4abae5ed34a9432279f0551f.jpg',
+			srcUrl:'https://zhaifanyang.github.io',
+			addClass:'classA',
+			isOk:false,
+			classA:'classA',
+			classB:'classB',
+			sty:{color:'red',fontSize:"18px"}
+		}
+	})
+	</script>
+</body>
+</html>

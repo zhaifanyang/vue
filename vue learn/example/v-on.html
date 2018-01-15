@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-on实例</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		本场得分：{{score}}
+		<p>
+			<button v-on:click='addScore'>加</button>
+			<button @click='delScore'>减</button>
+			<input type="text" @keyup.enter='onEnter' v-model='score2'>回车进行加法计算
+		</p>
+	</div>
+	<script type="text/javascript">
+	var app = new Vue({
+		el:"#app",
+		data:{
+			score: 0,
+			score2: 0
+		},
+		methods:{
+			addScore:function(){
+				this.score++;
+			},
+			delScore:function(){
+				this.score--;
+			},
+			onEnter:function(){
+				this.score = this.score + parseInt(this.score2);
+				this.score2 = 0
+			}
+		}
+	});
+	</script>
+</body>
+</html>
