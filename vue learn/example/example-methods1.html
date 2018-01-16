@@ -14,6 +14,7 @@
 	</div>
 	<p><button onclick='reduce()'>reduce</button></p>
 	<p><button onclick='once()'>reduce</button></p>
+	<p><button onclick='del()'>off</button></p>
 	<script type="text/javascript">
 	var app = new Vue({
 		el:'#app',
@@ -37,6 +38,10 @@
 	})
 	function once(){
 		app.$emit('once')
+	}
+	function del(){
+		app.$off()
+		// app.$off('reduce');
 	}
 	</script>
 </body>
