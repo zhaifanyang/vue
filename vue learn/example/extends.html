@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>extends 扩展实例构造器</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>extends 扩展实例构造器</h1>
+	<hr>
+	<div id="app">
+		<p>{{count}}</p>
+		<p><button @click='add'>add</button></p>
+		<header></header>
+	</div>
+	<script type="text/javascript">
+	var outer = {
+		updated:function(){
+			console.log('这是扩展更新')
+		}
+	}
+	var odd = Vue.extend({
+		updated:function(){
+			console.log('这是全局更新')
+		}
+	})
+	new odd().$mount('header')
+	var app = new Vue({
+		el:'#app',
+		data:{
+			count:0
+		},
+		methods:{
+			add:function(){
+				this.count++
+			}
+		},
+		updated:function(){
+			console.log('这是原生更新')
+		},
+		extends:outer
+	})
+	</script>
+</body>
+</html>

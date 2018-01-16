@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>helloworld</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+	<script type="text/javascript" src='../assets/js/jquery.min.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+	</div>
+	<p><button onclick='del()'>解绑</button></p>
+	<p><button onclick='update()'>更新</button></p>
+	<p><button onclick='tick()'>更改数据</button></p>
+	<script type="text/javascript">
+	var vm = Vue.extend({
+		template:`<div>
+			<p>{{msg}}</p>
+			<button @click='add'>click</button>
+		</div>`,
+		data:function(){
+			return {
+				msg:0
+			}
+		},
+		methods:{
+			add:function(){
+				this.msg++
+			}
+		},
+		destroyed:function(){
+			console.log('已经被销毁!')
+		},
+		updated:function(){
+			console.log('已经完成更新')
+		}
+	})
+	var app = new vm().$mount('#app');
+	function del(){
+		app.$destroy()
+	}
+	function update(){
+		// 更新方法
+		app.$forceUpdate()
+	}
+	function tick(){
+	    app.msg=1;
+	    app.$nextTick(function(){
+	        console.log('message更新完后我被调用了');
+	    })
+	}
+	</script>
+</body>
+</html>

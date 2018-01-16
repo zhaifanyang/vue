@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>v-on实例</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<!-- 四个知识点：传值、$event、.native构造器内部调用原生方法、构造器外部调用构造器方法 -->
+<body>
+	<h1>methods .native</h1>
+	<hr>
+	<div id="app">
+		{{score}}
+		<p><button @click='add(2,$event)'>add</button></p>
+		<p>.native:<btn @click.native='add()'>add</btn></p>
+	</div>
+	outer:<button onclick='app.add()'>add</button>
+	<script type="text/javascript">
+	var btn = {
+		template:'<button>add</button>'
+	}
+	var app = new Vue({
+		el:"#app",
+		data:{
+			score: 0,
+		},
+		components:{
+			btn:btn
+		},
+		methods:{
+			add:function(num){
+				if (arguments.length === 0) {
+					this.score++;
+				}else{
+					this.score+=parseInt(num);
+				}
+			}
+		}
+	});
+	</script>
+</body>
+</html>

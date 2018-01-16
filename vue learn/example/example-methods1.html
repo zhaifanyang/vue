@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>example-methods1</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>example-methods1</h1>
+	<hr>
+	<div id="app">
+		<p>{{message}}</p>
+		<button @click='add'>add</button>
+	</div>
+	<p><button onclick='reduce()'>reduce</button></p>
+	<p><button onclick='once()'>reduce</button></p>
+	<script type="text/javascript">
+	var app = new Vue({
+		el:'#app',
+		data:{
+			message:0
+		},
+		methods:{
+			add:function(){
+				this.message++
+			}
+		}
+	})
+	app.$on('reduce',function(){
+		this.message--
+	})
+	function reduce(){
+		app.$emit('reduce')
+	}
+	app.$once('once',function(){
+		this.message--
+	})
+	function once(){
+		app.$emit('once')
+	}
+	</script>
+</body>
+</html>

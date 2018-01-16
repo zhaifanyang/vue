@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>propsData option</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>propsData option</h1>
+	<hr>
+	<div id="app">
+		<header></header>
+	</div>
+	<script type="text/javascript">
+	var header_a = Vue.extend({
+		template:'<div>{{message}} a:{{a}}</div>',
+		data:function(){
+			return {
+				message:'password'
+			}
+		},
+		props:['a']
+	})
+	// 组件传输数据
+	new header_a({propsData:{a:1}}).$mount('header')
+	</script>
+</body>
+</html>

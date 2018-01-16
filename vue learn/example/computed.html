@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>computed计算属性</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		{{newPrice}}
+		<ul>
+			<li v-for='item in revNews'>{{item.title}}{{item.date}}</li>
+		</ul>
+	</div>
+	<script type="text/javascript">
+	var renews = [
+		{title:'中共中央政治局常务委员会召开会议',date:'2018/1/14'},
+		{title:'全面从严治党永远在路上 新时代新气象新作为',date:'2018/1/15'},
+		{title:'以永远在路上的执着 迎来清风正气满乾坤',date:'2018/1/15'},
+		{title:'紧紧抓住大有可为的历史机遇期',date:'2018/1/16'},
+		{title:'地方经济数据现“水分” 统计局推统一核算改革',date:'2018/1/16'}
+	];
+	var app = new Vue({
+		el:"#app",
+		data:{
+			price:'100',
+			news:renews
+		},
+		computed:{
+			newPrice:function(){
+				return '￥'+this.price+'元'
+			},
+			revNews:function(){
+				return this.news.reverse()
+			}
+		}
+	})
+	</script>
+</body>
+</html>

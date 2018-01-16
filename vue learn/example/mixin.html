@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>helloworld</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<!-- 知识点：mixin执行顺序，全局>局部混入>原生 -->
+<body>
+	<h1>mixin</h1>
+	<hr>
+	<div id="app">
+		<p>{{count}}</p>
+		<p><button @click='add'>add</button></p>
+	</div>
+	<script type="text/javascript">
+	var outUpdated = {
+		updated:function(){
+			console.log('这是内部混入minin加载的')
+		}
+	}
+	Vue.mixin({
+		updated:function(){
+			console.log('这是全局混入minin加载的')
+		}
+	})
+	var app = new Vue({
+		el:"#app",
+		data:{
+			count: 0
+		},
+		methods:{
+			add:function(){
+				this.count ++
+			}
+		},
+		updated:function(){
+			console.log('这是原生更新')
+		},
+		mixins:[outUpdated]
+	})
+	</script>
+</body>
+</html>

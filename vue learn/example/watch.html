@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>watch监控数据</title>
+	<script type="text/javascript" src='../assets/js/vue.js'></script>
+</head>
+<body>
+	<h1>Vue2.0实例</h1>
+	<hr>
+	<div id="app">
+		<p>今日温度:{{newTemperature}}</p>
+		<p>穿衣建议:{{message}}</p>
+		<p><button @click='rise'>增加温度</button></p>
+		<p><button @click='reduce'>降低温度</button></p>
+	</div>
+	<script type="text/javascript">
+	var clothes = ['衬衫','皮衣','棉衣']
+	var app = new Vue({
+		el:"#app",
+		data:{
+			temperature: 28,
+			message: '衬衫'
+		},
+		methods:{
+			rise:function(){
+				this.temperature+=6
+			},
+			reduce:function(){
+				this.temperature-=6
+			}
+		},
+		computed:{
+			newTemperature:function(){
+				return this.temperature+'℃'
+			}
+		},
+		// watch监控数据
+		// watch:{
+		// 	temperature:function(newVal,oldVal){
+		// 		if (newVal >= 28) {
+		// 			this.message = clothes[0];
+		// 			console.log(clothes[0])
+		// 		}else if(newVal < 28 && newVal >= 0){
+		// 			this.message = clothes[1];
+		// 			console.log(clothes[1])
+		// 		}else{
+		// 			this.message = clothes[2];
+		// 			console.log('1')
+		// 		}
+		// 	}
+		// }
+	})
+	app.$watch('temperature',function(newVal,oldVal){
+				if (newVal >= 28) {
+					this.message = clothes[0];
+					console.log(clothes[0])
+				}else if(newVal < 28 && newVal >= 0){
+					this.message = clothes[1];
+					console.log(clothes[1])
+				}else{
+					this.message = clothes[2];
+					console.log('1')
+				}
+			})
+	</script>
+</body>
+</html>
