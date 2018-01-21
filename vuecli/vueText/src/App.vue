@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
+    <img src="./assets/logo.png"><br/>
+    <button @click='GoBack'>回退</button>
+    <button @click='GoTo'>前进</button>
+    <button @click='GoHome'>返回首页</button>
     <transition name='fade' mode='out-in'>
       <router-view/>
     </transition>
@@ -22,12 +25,24 @@
       <router-link class='a' to='/gohome'>返回首页</router-link>
       <router-link class='a' to='/213213'>开发中...</router-link>
     </p>
+    <p>{{$route.name}}</p>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  methods:{
+    GoBack:function(){
+      this.$router.go(-1);
+    },
+    GoTo(){
+      this.$router.go(1)
+    },
+    GoHome(){
+      this.$router.push('/')
+    }
+  }
 }
 </script>
 
