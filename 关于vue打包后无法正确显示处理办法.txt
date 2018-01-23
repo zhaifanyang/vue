@@ -1,0 +1,18 @@
+在项目目录找到配置文件config > index.html 修改：
+assetsPublicPath: "./" 
+这样打包处理可以打开但是页面样式会找不到
+
+修改:
+build > utils.js
+
+
+if(options.extract){
+	return ExtractTextPlugin.extract({
+		use: loaders,
+		fallback: "vue-style-loader",
+		publicPath: "../../"
+	})else{
+	}
+}
+
+找到对应位置加上publicPath: '../../' 
